@@ -72,10 +72,21 @@ a:hover {
   font-weight: 700;
   font-size: 1.25rem;
   color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 .site-title:hover {
   text-decoration: none;
   color: var(--text);
+}
+
+.site-logo {
+  font-family: "JetBrains Mono", "Fira Code", monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.02em;
 }
 
 .nav-links {
@@ -262,6 +273,14 @@ a:hover {
 .post-date {
   font-size: 0.95rem;
   color: var(--text-muted);
+}
+
+.post-header-image {
+  width: 100%;
+  height: auto;
+  margin-top: 1.5rem;
+  border-radius: var(--radius);
+  display: block;
 }
 
 .post-content {

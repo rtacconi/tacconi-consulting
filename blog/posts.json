@@ -1,20 +1,26 @@
 [
   {
+    "slug": "ai-agents-content-ops",
+    "title": "AI Agents as Your Content Ops Team: a modern blogging workflow for AI & Automation consultancies",
+    "date": "2026-02-17",
+    "excerpt": "A practical, consultancy-ready agentic blogging system: pipeline design, quality gates, and repurposing—without diluting your point of view."
+  },
+  {
     "slug": "agentic-development-promise-and-peril",
     "title": "Agentic Development: Promise and Peril",
-    "date": "2025-02-16",
+    "date": "2026-02-16",
     "excerpt": "The new way of development with AI agents — role evolution and verification — and the issues: learning crisis, productivity myths, and context overload."
   },
   {
     "slug": "autonomous-loops-and-openspec",
     "title": "Autonomous AI Loops and the Case for Spec-Driven Tools",
-    "date": "2025-02-16",
+    "date": "2026-02-10",
     "excerpt": "From the human-in-the-loop bottleneck to iterative agent loops, and why tools like OpenSpec become essential when agents run across sessions and codebases."
   },
   {
     "slug": "welcome",
     "title": "Migrating Legacy Systems with AI Agents: From Code Analysis to Multimodal Reverse Engineering",
-    "date": "2025-02-16",
+    "date": "2026-02-01",
     "excerpt": "Practical patterns for migrating legacy platforms using AI agents — code analysis, UI reverse engineering, SME knowledge capture, and automated specification generation."
   }
 ]

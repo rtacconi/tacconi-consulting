@@ -50,6 +50,7 @@ To point **tacconiconsulting.com** at GitHub Pages from Spaceship:
 
 1. **Create the post HTML** in `blog/posts/<slug>.html`. Use an existing post (e.g. `welcome.html`) as a template: same header/footer, `../../` for CSS and home links, `../` for blog index.
 2. **Register the post** in `blog/posts.json`: add an object with `slug`, `title`, `date` (YYYY-MM-DD), and optional `excerpt`.
+3. **Add the post to the blog list** in `blog/index.html`: add a new `<li>` inside the `<ul class="blog-list">` with a link to `posts/<slug>.html`, the title, and a `<div class="blog-meta">` with the date (e.g. `16 Feb 2025`). Put new posts at the top of the list.
 
 Example `posts.json` entry:
 
@@ -62,7 +63,11 @@ Example `posts.json` entry:
 }
 ```
 
-Posts are listed on `blog/index.html` automatically via the existing script.
+Example list item in `blog/index.html`:
+
+```html
+<li><a href="posts/my-new-post.html">My new post</a><div class="blog-meta">20 Feb 2025</div></li>
+```
 
 ## Local preview
 

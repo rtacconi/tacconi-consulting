@@ -33,7 +33,9 @@
         <h1>Blog</h1>
         <p>Notes on platform engineering, Kubernetes, Linux, AWS, and building infrastructure that lasts.</p>
         <ul class="blog-list" id="blog-list">
-          <!-- Populated by JS from posts.json -->
+          <li><a href="posts/agentic-development-promise-and-peril.html">Agentic Development: Promise and Peril</a><div class="blog-meta">16 Feb 2025</div></li>
+          <li><a href="posts/autonomous-loops-and-openspec.html">Autonomous AI Loops and the Case for Spec-Driven Tools</a><div class="blog-meta">16 Feb 2025</div></li>
+          <li><a href="posts/welcome.html">Migrating Legacy Systems with AI Agents: From Code Analysis to Multimodal Reverse Engineering</a><div class="blog-meta">16 Feb 2025</div></li>
         </ul>
       </div>
     </section>
@@ -50,26 +52,6 @@
     </div>
   </footer>
 
-  <script>
-    (function () {
-      fetch('posts.json')
-        .then(function (r) { return r.json(); })
-        .then(function (posts) {
-          var list = document.getElementById('blog-list');
-          list.innerHTML = posts.map(function (p) {
-            var dateStr = new Date(p.date + 'T12:00:00').toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
-            return '<li><a href="posts/' + p.slug + '.html">' + escapeHtml(p.title) + '</a><div class="blog-meta">' + dateStr + '</div></li>';
-          }).join('');
-        })
-        .catch(function () {
-          document.getElementById('blog-list').innerHTML = '<li>No posts yet. Check back soon.</li>';
-        });
-      function escapeHtml(s) {
-        var div = document.createElement('div');
-        div.textContent = s;
-        return div.innerHTML;
-      }
-    })();
-  </script>
+  <!-- List is static so it always shows all posts; when adding a post, add a <li> here and an entry in blog/posts.json -->
 </body>
 </html>

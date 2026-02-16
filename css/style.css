@@ -286,10 +286,12 @@ a:hover {
 
 .post-header-image {
   width: 100%;
+  max-width: 100%;
   height: auto;
   margin-top: 1.5rem;
   border-radius: var(--radius);
   display: block;
+  box-sizing: border-box;
 }
 
 .post-content {

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agentic Development: Promise and Peril — Tacconi Consulting Ltd</title>
+  <meta name="description" content="The new way of development with AI agents — role evolution, delegation, and verification — alongside the learning crisis, productivity myths, and context overload.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../" class="site-title">Tacconi Consulting</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../services/">Services</a></li>
+          <li><a href="../../use-cases/">Use cases</a></li>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../">Blog</a></li>
+          <li><a href="../../#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="container">
+      <a href="../" class="back-link">← Blog</a>
+      <header class="post-header">
+        <h1>Agentic Development: Promise and Peril</h1>
+        <p class="post-date">16 February 2025</p>
+      </header>
+      <div class="post-content">
+        <p>Software development is being reinvented around AI agents — not only as autocomplete, but as orchestratable workers that can plan, implement, and iterate. That shift opens a new way of working: less typing, more architecting and verifying. It also brings real risks: shallow learning, inflated productivity claims, and tooling that can make agents worse instead of better. This post summarises key ideas from <a href="https://steipete.me/posts/2025/essential-reading-august-2025" target="_blank" rel="noopener">Peter Steinberger’s Essential Reading for Agentic Engineers (August 2025)</a>, which curates research and essays on both the promise and the pitfalls.</p>
+
+        <h2>The promise: role reinvention</h2>
+        <p>Research with developers who have made AI central to their workflow suggests a clear evolution: from <strong>AI sceptic</strong> (dabbling with completions) to <strong>AI strategist</strong> (orchestrating multi-agent workflows with planning and coding models). At the advanced end, the job shifts from “writing code” to “architecting and verifying implementation work carried out by AI agents”.</p>
+        <p>That means:</p>
+        <ul>
+          <li><strong>Delegation</strong> — Context engineering, prompt design, and clear success criteria so agents can execute without micromanagement.</li>
+          <li><strong>Verification</strong> — Validating AI output against objectives: does it do what we agreed, and is it correct?</li>
+          <li><strong>Ambition, not just speed</strong> — Many practitioners focus less on “time saved” and more on “increasing ambition”: taking on scope and complexity that would have been out of reach before.</li>
+        </ul>
+        <p>Some see a near-term future where the majority of code is AI-written, with humans as “code enablers” or “Creative Director of Code”. Whether or not the timeline is right, the direction is clear: the profession is evolving toward orchestration and verification, with foundational programming knowledge still essential for knowing what to ask for and whether the answer is right.</p>
+
+        <h2>The learning crisis</h2>
+        <p>There is a sobering counterpoint. Juniors are increasingly able to ship code by leaning on AI without understanding the underlying principles. That’s the argument in <a href="https://steipete.me/posts/2025/essential-reading-august-2025" target="_blank" rel="noopener">the “Hidden Cost of AI-Assisted Learning”</a> thread in Steinberger’s roundup: we may be trading deep understanding for quick fixes.</p>
+        <ul>
+          <li><strong>Pattern matching vs. understanding</strong> — AI excels at producing working snippets; developers can miss the “struggle phase” where real understanding forms. The gap is between “knowing how to use a solution” and “understanding why it works”.</li>
+          <li><strong>Shaky foundations</strong> — Seniors often use AI to amplify existing knowledge. Juniors risk building on sand: when complex debugging or architecture is needed, the missing fundamentals show up. “We’re going to pay for this later.”</li>
+          <li><strong>Generational divide</strong> — Those who learned pre-AI often have the fundamentals to verify and correct AI output. Those learning with AI from day one may lack the base to spot subtle errors or bad design.</li>
+        </ul>
+        <p>The implication isn’t to avoid AI in learning, but to use it intentionally: interrogate AI solutions, build from scratch sometimes, and push code review beyond “does it work?” to “why does it work this way?”. Problem decomposition, algorithmic thinking, and system design remain essential for anyone who wants to lead in an AI-augmented world, not just participate.</p>
+
+        <h2>Reality check: productivity myths</h2>
+        <p>Claims of 10x or 100x productivity from AI are pervasive — and misleading. Much of engineering time isn’t typing: it’s thinking, debugging, reviewing, and coordinating. AI doesn’t fundamentally accelerate those activities. The maths doesn’t add up.</p>
+        <p>In practice:</p>
+        <ul>
+          <li>AI helps most with <strong>specific tasks</strong>: one-off scripts, boilerplate, repetitive patterns. Those are a fraction of the job. Realistic gains are often in the 20–30% range for well-scoped use cases.</li>
+          <li>AI-generated code frequently needs <strong>significant review and correction</strong> — sometimes more than writing from scratch. There is a real “correction overhead”.</li>
+          <li>The constant “10x engineer” messaging creates <strong>imposter syndrome and anxiety</strong>, when in reality experienced engineers quickly learn AI’s limits through use.</li>
+        </ul>
+        <p>A balanced take: use AI where it genuinely helps (scripts, boilerplate, routine refactors), and keep confidence in human judgement for complex problem-solving, system design, and the parts of the work that remain fundamentally human. The goal is a clearer picture of what’s actually changing, not hype or doom.</p>
+
+        <h2>Context and tools: less is more</h2>
+        <p>Agentic workflows depend on context: the model needs enough of the right information to reason and act. That makes <strong>context window economics</strong> critical. Every tool, integration, or MCP server consumes tokens. More tools mean less space for the actual code and task.</p>
+        <p>Geoffrey Huntley’s analysis (also highlighted in <a href="https://steipete.me/posts/2025/essential-reading-august-2025" target="_blank" rel="noopener">the August 2025 roundup</a>) puts it sharply: the more you allocate into the context window, the worse outcomes can get. Proliferation of MCP servers and overlapping tools leads to non-deterministic behaviour — the model struggles to choose between similar capabilities — and adds cognitive overhead. There are security implications too: third-party servers can introduce supply chain and context-injection risks.</p>
+        <p>The lesson: <strong>restrain tooling</strong>. Prefer a small set of essential, trusted tools. Enable servers or integrations only when needed for a given workflow stage, rather than loading everything at once. Treat context as a scarce resource.</p>
+
+        <h2>Conclusion</h2>
+        <p>The new way of development with agents is real: role reinvention, delegation, verification, and higher ambition are within reach for teams that invest in AI fluency and orchestration. So are the downsides: learning that never goes deep, productivity expectations set by myth, and tool stacks that dilute rather than focus the agent.</p>
+        <p>Embrace the shift — and protect the fundamentals. Use agents for execution where success criteria are clear; keep humans in the loop for direction, review, and the bits that require judgement. Invest in intentional learning and in context discipline. The reinvention of software development is happening; the question is whether we shape it with our eyes open.</p>
+
+        <p><strong>Further reading</strong></p>
+        <ul>
+          <li><a href="https://steipete.me/posts/2025/essential-reading-august-2025" target="_blank" rel="noopener">Essential Reading for Agentic Engineers - August 2025</a> (Peter Steinberger) — Curated summaries and links on developers reinvented, the hidden cost of AI-assisted learning, productivity reality checks, platform dominance, and MCP proliferation.</li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© Tacconi Consulting Ltd</span>
+      <a href="../../">Home</a>
+      <a href="../../services/">Services</a>
+      <a href="../../use-cases/">Use cases</a>
+      <a href="../../about/">About</a>
+      <a href="../../#contact">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

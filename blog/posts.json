@@ -1,5 +1,11 @@
 [
   {
+    "slug": "agentic-development-promise-and-peril",
+    "title": "Agentic Development: Promise and Peril",
+    "date": "2025-02-16",
+    "excerpt": "The new way of development with AI agents — role evolution and verification — and the issues: learning crisis, productivity myths, and context overload."
+  },
+  {
     "slug": "autonomous-loops-and-openspec",
     "title": "Autonomous AI Loops and the Case for Spec-Driven Tools",
     "date": "2025-02-16",

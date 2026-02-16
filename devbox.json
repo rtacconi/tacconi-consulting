@@ -1,0 +1,7 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/main/schema.json",
+  "packages": [
+    "just@latest",
+    "python@3.12"
+  ]
+}

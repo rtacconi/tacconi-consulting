@@ -18,7 +18,7 @@
     "excerpt": "From the human-in-the-loop bottleneck to iterative agent loops, and why tools like OpenSpec become essential when agents run across sessions and codebases."
   },
   {
-    "slug": "welcome",
+    "slug": "migrating-legacy-systems-ai-agents",
     "title": "Migrating Legacy Systems with AI Agents: From Code Analysis to Multimodal Reverse Engineering",
     "date": "2026-02-01",
     "excerpt": "Practical patterns for migrating legacy platforms using AI agents — code analysis, UI reverse engineering, SME knowledge capture, and automated specification generation."

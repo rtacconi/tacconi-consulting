@@ -19,6 +19,33 @@ Static marketing site and blog for Tacconi Consulting Ltd — IT consulting spec
 
 The `.nojekyll` file ensures GitHub serves the static files as-is (no Jekyll processing).
 
+### Custom domain (Spaceship DNS)
+
+To point **tacconiconsulting.com** at GitHub Pages from Spaceship:
+
+1. **GitHub:** In the repo go to **Settings → Pages → Custom domain**, enter `tacconiconsulting.com`, save. Optionally enable **Enforce HTTPS** after DNS propagates.
+
+2. **Spaceship:** Open the domain → **DNS** (or Advanced DNS). Add these records:
+
+   **Apex (root) — tacconiconsulting.com**
+
+   | Type | Name/Host | Value |
+   |------|-----------|--------|
+   | A    | `@`       | `185.199.108.153` |
+   | A    | `@`       | `185.199.109.153` |
+   | A    | `@`       | `185.199.110.153` |
+   | A    | `@`       | `185.199.111.153` |
+
+   **www (optional)**
+
+   | Type  | Name/Host | Value                |
+   |-------|-----------|----------------------|
+   | CNAME | `www`     | `rtacconi.github.io` |
+
+   If Spaceship supports **ALIAS** or **ANAME** for the apex, you can use a single record: name `@`, value `rtacconi.github.io` instead of the four A records.
+
+3. Remove any existing A or CNAME on `@` that point elsewhere. Wait for DNS to propagate (up to 24 hours, often a few minutes).
+
 ## Adding a blog post
 
 1. **Create the post HTML** in `blog/posts/<slug>.html`. Use an existing post (e.g. `welcome.html`) as a template: same header/footer, `../../` for CSS and home links, `../` for blog index.

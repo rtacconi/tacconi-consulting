@@ -1,8 +1,8 @@
 [
   {
     "slug": "welcome",
-    "title": "Welcome to the Tacconi Consulting blog",
+    "title": "Migrating Legacy Systems with AI Agents: From Code Analysis to Multimodal Reverse Engineering",
     "date": "2025-02-16",
-    "excerpt": "A short note on what we'll be writing about: platform engineering, Kubernetes, Linux, and building infrastructure that lasts."
+    "excerpt": "Practical patterns for migrating legacy platforms using AI agents — code analysis, UI reverse engineering, SME knowledge capture, and automated specification generation."
   }
 ]

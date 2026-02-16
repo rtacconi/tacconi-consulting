@@ -122,6 +122,15 @@ a:hover {
   margin: 0 auto 2rem;
 }
 
+.hero-summary-image {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  margin: 2.5rem auto 0;
+  display: block;
+  border-radius: var(--radius);
+}
+
 /* Sections */
 .section {
   padding: 3rem 0;

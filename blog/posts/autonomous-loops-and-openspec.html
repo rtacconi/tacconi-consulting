@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Autonomous AI Loops and the Case for Spec-Driven Tools — Tacconi Consulting Ltd</title>
+  <meta name="description" content="From the human-in-the-loop bottleneck to autonomous coding loops, and why tools like OpenSpec become essential when agents run across sessions and codebases.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="../../" class="site-title">Tacconi Consulting</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="../../">Home</a></li>
+          <li><a href="../../services/">Services</a></li>
+          <li><a href="../../use-cases/">Use cases</a></li>
+          <li><a href="../../about/">About</a></li>
+          <li><a href="../">Blog</a></li>
+          <li><a href="../../#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <article class="container">
+      <a href="../" class="back-link">← Blog</a>
+      <header class="post-header">
+        <h1>Autonomous AI Loops and the Case for Spec-Driven Tools</h1>
+        <p class="post-date">16 February 2025</p>
+      </header>
+      <div class="post-content">
+        <p>AI coding agents are shifting from single-pass assistance to long-running, iterative execution. That shift exposes a bottleneck: when the agent runs for hours or across many files, how do you know what it was <em>supposed</em> to do — and how do you review the result? This post draws on the <a href="https://dev.to/ibrahimpima/the-ralf-wiggum-breakdown-3mko" target="_blank" rel="noopener">Ralph Wiggum technique</a> and connects it to spec-driven frameworks like <a href="https://openspec.dev/" target="_blank" rel="noopener">OpenSpec</a>: persistent context, reviewable intent, and plans that outlive a single chat session.</p>
+
+        <h2>1. The human-in-the-loop bottleneck</h2>
+        <p>Most AI coding tools today operate in <strong>single-pass mode</strong>. You give a task, the model reasons and generates code, then it stops. Even when it could iterate on its own work, the default workflow assumes you will review every step. That creates what Geoffrey Huntley (creator of the Ralph Wiggum approach) calls the <strong>human-in-the-loop bottleneck</strong>.</p>
+        <p>For small, localised tasks this is fine. For migrations, refactors, or multi-file changes, the loop becomes exhausting: you spend time reviewing every change, re-prompting when something breaks, and waiting for the agent to resume. The limiting factor is often not model intelligence or context size — it’s the workflow that forces a stop after every action.</p>
+        <p>The alternative is <strong>autonomous loops</strong>. The agent executes, checks its own work (e.g. via tests or compilation), and iterates until a completion condition is met. You define success upfront; the agent works toward it. Failures become input for the next iteration. No human approval is required for every micro-step.</p>
+
+        <h2>2. Iteration beats perfection</h2>
+        <p>The Ralph Wiggum technique is often summarised as: <em>“Ralph is a Bash loop.”</em> You run the agent on the same prompt repeatedly until a stop condition is satisfied. The agent sees its previous work (e.g. via git history and modified files), learns from it, and improves.</p>
+        <ul>
+          <li><strong>Single-pass:</strong> One prompt → one attempt → done (or not).</li>
+          <li><strong>Loop:</strong> One prompt → attempt → check result → if incomplete, iterate → repeat until done.</li>
+        </ul>
+        <p>Implementation details vary (e.g. “stop hooks” that intercept the agent’s exit and re-inject the prompt if a completion promise isn’t found). The important idea is a shift in execution model: from one shot to continuous iteration. The agent doesn’t need to be right first time; it needs to make progress. Iteration handles the rest.</p>
+        <p>In loop mode, behaviour changes. The agent can afford to be wrong occasionally. It tries approaches faster. Errors become data for the next run. The insight is that <strong>deterministically bad</strong> (we know the agent will sometimes fail; the loop recovers) can beat <strong>unpredictably good</strong> (occasional success, but chaotic failure and manual intervention).</p>
+
+        <h2>3. From directing to designing convergence</h2>
+        <p>When you move from single-pass to loops, the human role shifts. You are no longer directing every step; you are <strong>designing conditions under which iteration converges to success</strong>.</p>
+        <ul>
+          <li>Define clear success criteria (what does “done” mean?).</li>
+          <li>Provide verifiable checkpoints (tests, linters, compilation) so the agent can validate its own work.</li>
+          <li>Structure prompts so that wrong turns are correctable (e.g. “if tests fail, read the error, fix, re-run”).</li>
+        </ul>
+        <p>Prompting becomes less about perfect one-shot instructions and more about convergence: will repeated attempts, with feedback, tend toward a correct outcome? That’s a different skill — and it pays off when agents run for hours or overnight on migrations, refactors, or greenfield builds.</p>
+
+        <h2>4. Where loops run into limits</h2>
+        <p>Autonomous loops work well when:</p>
+        <ul>
+          <li>The task has clear, checkable completion criteria.</li>
+          <li>Feedback exists in the environment (tests, build, lint).</li>
+          <li>Context is available to the agent (e.g. git history, current files).</li>
+        </ul>
+        <p>But as soon as work spans <strong>multiple sessions</strong>, <strong>multiple agents</strong>, or <strong>multiple people</strong>, a new problem appears: <strong>intent and context are tied to a single run or chat</strong>. When the session ends, or when someone else (or another tool) continues the work, the “why” and the “what we agreed” are not first-class artefacts. They live in chat logs or in the developer’s head.</p>
+        <p>That’s where spec-driven and plan-as-artifact tooling enters.</p>
+
+        <h2>5. Spec-driven tools: OpenSpec and beyond</h2>
+        <p>When agents run in loops over long periods, you need:</p>
+        <ul>
+          <li><strong>Context that persists</strong> — not only inside one agent session.</li>
+          <li><strong>Review of intent</strong> — not only of the resulting code.</li>
+          <li><strong>Plans that outlive the conversation</strong> — so the next run, or the next developer, can see what the system is supposed to do.</li>
+        </ul>
+        <p><a href="https://openspec.dev/" target="_blank" rel="noopener">OpenSpec</a> is a lightweight, spec-driven framework that fits this model. A few ideas that align with autonomous loops:</p>
+
+        <h3>Specs live in the repo</h3>
+        <p>Specs are stored alongside code, organised by capability. When an agent needs context about how a feature should behave, it reads the spec. When a new developer joins, they browse the spec library. Context doesn’t disappear when a chat session ends. That’s exactly what long-running or multi-session agent work needs: a single source of truth for “what we’re building” that both humans and agents can use.</p>
+
+        <h3>Review intent, not just code</h3>
+        <p>Each change can produce a <strong>spec delta</strong>: how requirements are changing, not only which lines of code changed. Reviewers can judge whether the intended behaviour is right before diving into implementation. For agent-generated or agent-modified code, that’s critical: you want to review the contract and the requirements, not only the diff.</p>
+
+        <h3>Proposal and tasks before code</h3>
+        <p>OpenSpec encourages generating a proposal document, implementation tasks, and design notes — and showing how specs would change — <em>before</em> writing code. You review and refine the plan first. That fits the “design convergence” mindset: define what “done” looks like and how requirements change, then let the agent (or the team) execute. Misalignment is caught at the spec level, not only when tests fail.</p>
+
+        <h3>Brownfield and multi-session</h3>
+        <p>OpenSpec is aimed at existing codebases and at plans that extend over multiple sessions or tools. That matches the reality of autonomous loops: work that runs overnight, or that you hand off to another agent or human. A shared spec layer gives everyone — and every run — the same view of intent.</p>
+
+        <h2>6. Bringing it together</h2>
+        <p>Autonomous coding loops (Ralph Wiggum–style or similar) remove the need for a human to approve every step. They rely on clear success criteria, verifiable feedback, and iteration. The human role becomes designing for convergence rather than micromanaging output.</p>
+        <p>Once work spans sessions, agents, and people, that convergence design must be reflected in <strong>artefacts that persist</strong>: specs, proposals, and task breakdowns that live in the repo and can be read by both humans and agents. Tools like OpenSpec provide that layer — lightweight, brownfield-friendly, and agnostic to which coding agent you use.</p>
+        <p>Together, autonomous loops and spec-driven tooling point toward a workflow where agents can run long and loud, while intent stays explicit, reviewable, and durable. That’s a practical path to scaling AI-assisted development without losing control or clarity.</p>
+
+        <p><strong>Further reading:</strong></p>
+        <ul>
+          <li><a href="https://dev.to/ibrahimpima/the-ralf-wiggum-breakdown-3mko" target="_blank" rel="noopener">The Ralph Wiggum Breakdown</a> (DEV Community) — human-in-the-loop bottleneck, stop hooks, and convergence.</li>
+          <li><a href="https://openspec.dev/" target="_blank" rel="noopener">OpenSpec</a> — spec-driven framework, specs in repo, proposal-first workflow.</li>
+        </ul>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span>© Tacconi Consulting Ltd</span>
+      <a href="../../">Home</a>
+      <a href="../../services/">Services</a>
+      <a href="../../use-cases/">Use cases</a>
+      <a href="../../about/">About</a>
+      <a href="../../#contact">Contact</a>
+    </div>
+  </footer>
+</body>
+</html>

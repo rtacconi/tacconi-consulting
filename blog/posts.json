@@ -1,5 +1,11 @@
 [
   {
+    "slug": "autonomous-loops-and-openspec",
+    "title": "Autonomous AI Loops and the Case for Spec-Driven Tools",
+    "date": "2025-02-16",
+    "excerpt": "From the human-in-the-loop bottleneck to iterative agent loops, and why tools like OpenSpec become essential when agents run across sessions and codebases."
+  },
+  {
     "slug": "welcome",
     "title": "Migrating Legacy Systems with AI Agents: From Code Analysis to Multimodal Reverse Engineering",
     "date": "2025-02-16",
